@@ -1,22 +1,55 @@
-// 1) Use npm to install ejs in the terminal
+const express = require('express')
+const app = express()
 
 
-// 2) create a views and a public folder
+let pokemonData = {
+  "pokemon": [
+    {
+      "name": "Pikachu",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+      "types": ["Electric"]
+    },
+    {
+      "name": "Charizard",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+      "types": ["Fire", "Flying"]
+    },
+    {
+      "name": "Bulbasaur",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      "types": ["Grass", "Poison"]
+    },
+    {
+      "name": "Greninja",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/658.png",
+      "types": ["Water", "Dark"]
+    },
+    {
+      "name": "Lucario",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/448.png",
+      "types": ["Fighting", "Steel"]
+    }
+  ]
+}
 
 
 
-// 3) In your public folder create an index.html and add your code from the planning document 
-// You can also add your CSS files here too if applicable 
-
+app.use(express.static(__dirname + "/public"))
+app.set('view engine', 'ejs')
 
 
 
 // 4) Now in your views folder create your EJS file and add your HTML code from your planning document
+app.get("/", (req,res) =>{
+    res.sendFile(__dirname + "/public/index.html")
+})
+
+app.get("/randomP", (req,res) =>{
+    res.render('randomGen.ejs', pokemonData)
+})
 
 
 
-const express = require('express')
-const app = express()
 
 app.use((req, res, next) => {
     console.log(req.method, req.url)
@@ -24,22 +57,11 @@ app.use((req, res, next) => {
 })
 
 
-// 5) Paste in your data array of objects from the planning documents here. 
-
-
-// 6) Add static file middleware here
-
-
-// 7) Set the view engine to ejs here
-
-
-// 8) Create a route handler to path / and send your index.html 
-// run your server with node index.js to test it
 
 
 
-// 9) Create a route handler to your overview route from your planning document
-// Pass in your data array
+
+
 
 
 
