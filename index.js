@@ -5,32 +5,39 @@ const app = express()
 let pokemonData = {
   "pokemon": [
     {
-      "name": "Pikachu",
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
-      "types": ["Electric"]
+      name: "Pikachu",
+      image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+      types: ["Electric"]
     },
     {
-      "name": "Charizard",
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
-      "types": ["Fire", "Flying"]
+      name: "Charizard",
+      image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+      types: ["Fire", "Flying"]
     },
     {
-      "name": "Bulbasaur",
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-      "types": ["Grass", "Poison"]
+      name: "Bulbasaur",
+      image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      types: ["Grass", "Poison"]
     },
     {
-      "name": "Greninja",
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/658.png",
-      "types": ["Water", "Dark"]
+      name: "Greninja",
+      image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/658.png",
+      types: ["Water", "Dark"]
     },
     {
-      "name": "Lucario",
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/448.png",
-      "types": ["Fighting", "Steel"]
+      name: "Lucario",
+      image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/448.png",
+      types: ["Fighting", "Steel"]
     }
   ]
 }
+let randObJ = {}
+
+let randI = Math.floor(Math.random() * pokemonData.pokemon.length)
+
+randObJ.name = pokemonData.pokemon[randI].name
+randObJ.image = pokemonData.pokemon[randI].image
+randObJ.types = pokemonData.pokemon[randI].types
 
 
 
@@ -45,7 +52,9 @@ app.get("/", (req,res) =>{
 })
 
 app.get("/randomP", (req,res) =>{
-    res.render('randomGen.ejs', pokemonData)
+
+res.render('randomGen.ejs', randObJ)
+    
 })
 
 

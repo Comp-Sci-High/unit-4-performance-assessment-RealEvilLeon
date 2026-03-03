@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>Generator | Random Pokémon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
   <style>
     body {
 font-family: Arial, sans-serif;
@@ -100,9 +102,8 @@ background-color: white;
 font-size: 0.9rem;
 color: #777;
 }
+
   </style>
-</head>
-<body>
 
   <header>
     <h2>🎲 Random Pokémon Generator</h2>
@@ -110,15 +111,14 @@ color: #777;
   </header>
 
   <main>
-    <!-- Math.random Starts Here-->
-  <% let randomIndex = Math.floor(Math.random * pokemon.length %>
     <div class="generator-card">
-      <div class="pokemon-name"><%= pokemon[randomIndex].name %></div>
-      <img src="<%= pokemon[randomIndex].image %>" alt="Pokémon Image Placeholder">
+      <div class="pokemon-name"><%= name %></div>
+      <img src="<%= image %>" alt="Pokémon Image Placeholder">
       <div class="types">
         <span class="type-badge">Type</span>
-        <% for(let i = 0; i < pokemon.types.length; i++){ %>
-
+        <p>Types: </p>
+        <% for(let i = 0; i< types.length; i++){ %>
+  <p> <%= types[i] %></p>
        <% } %>
       </div>
 
