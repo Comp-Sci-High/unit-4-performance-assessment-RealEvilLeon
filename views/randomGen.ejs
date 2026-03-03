@@ -4,6 +4,103 @@
   <meta charset="UTF-8">
   <title>Generator | Random Pokémon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg, #3b4cca, #ffcb05);
+margin: 0;
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+}
+
+header {
+background-color: white;
+padding: 15px 30px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+header h2 {
+margin: 0;
+color: #3b4cca;
+}
+
+header a {
+text-decoration: none;
+color: #3b4cca;
+font-weight: bold;
+}
+
+main {
+flex: 1;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.generator-card {
+background: white;
+padding: 40px;
+border-radius: 20px;
+box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+text-align: center;
+width: 350px;
+}
+
+.pokemon-name {
+font-size: 1.5rem;
+font-weight: bold;
+color: #3b4cca;
+margin-bottom: 10px;
+}
+
+.generator-card img {
+width: 160px;
+height: 160px;
+margin: 15px 0;
+}
+
+.types {
+margin: 10px 0;
+}
+
+.type-badge {
+display: inline-block;
+padding: 6px 12px;
+margin: 5px;
+border-radius: 20px;
+background-color: #999;
+color: white;
+font-size: 0.85rem;
+text-transform: capitalize;
+}
+
+.generate-btn {
+padding: 12px 25px;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+background-color: #ffcb05;
+color: #3b4cca;
+font-weight: bold;
+margin-top: 20px;
+}
+
+.generate-btn:hover {
+background-color: #e6b800;
+}
+
+footer {
+text-align: center;
+padding: 15px;
+background-color: white;
+font-size: 0.9rem;
+color: #777;
+}
+  </style>
 </head>
 <body>
 
@@ -13,12 +110,18 @@
   </header>
 
   <main>
+    <!-- Math.random Starts Here-->
+  <% let randomIndex = Math.floor(Math.random * pokemon.length %>
     <div class="generator-card">
-      <div class="pokemon-name">Pokémon Name</div>
-      <img src="" alt="Pokémon Image Placeholder">
+      <div class="pokemon-name"><%= pokemon[randomIndex].name %></div>
+      <img src="<%= pokemon[randomIndex].image %>" alt="Pokémon Image Placeholder">
       <div class="types">
         <span class="type-badge">Type</span>
+        <% for(let i = 0; i < pokemon.types.length; i++){ %>
+
+       <% } %>
       </div>
+
       <button class="generate-btn">Generate Pokémon</button>
     </div>
   </main>
